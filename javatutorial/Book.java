@@ -1,19 +1,34 @@
-package Tutorial;
-
-import java.util.Scanner;
+package tutorials;
 
 public class Book {
+
     String title;
     String author;
     double price;
 
-    Book(String t, String a, double p) {
-        title = t;
-        author = a;
-        price = p;
+    // Default Constructor
+    Book() {
+        title = "Java Programming";
+        author = "Unknown";
+        price = 500.0;
     }
 
-    void displayBook() {
+    // Constructor with Title only
+    Book(String title) {
+        this.title = title;
+        author = "Unknown";
+        price = 500.0;
+    }
+
+    // Constructor with Title, Author and Price
+    Book(String title, String author, double price) {
+        this.title = title;
+        this.author = author;
+        this.price = price;
+    }
+
+    // Method to display book details
+    void display() {
         System.out.println("Title  : " + title);
         System.out.println("Author : " + author);
         System.out.println("Price  : " + price);
@@ -21,32 +36,26 @@ public class Book {
     }
 
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
 
-        System.out.println("Enter Book 1 Details");
-        System.out.print("Title: ");
-        String t1 = sc.nextLine();
-        System.out.print("Author: ");
-        String a1 = sc.nextLine();
-        System.out.print("Price: ");
-        double p1 = sc.nextDouble();
-        sc.nextLine();
+        // Object using Default Constructor
+        Book book1 = new Book();
 
-        System.out.println("\nEnter Book 2 Details");
-        System.out.print("Title: ");
-        String t2 = sc.nextLine();
-        System.out.print("Author: ");
-        String a2 = sc.nextLine();
-        System.out.print("Price: ");
-        double p2 = sc.nextDouble();
+        // Object using Constructor with Title
+        Book book2 = new Book("Object Oriented Programming");
 
-        Book b1 = new Book(t1, a1, p1);
-        Book b2 = new Book(t2, a2, p2);
+        // Object using Constructor with Title, Author and Price
+        Book book3 = new Book("Data Structures", "Mark Allen Weiss", 750.0);
 
-        System.out.println("\nBook Details");
-        b1.displayBook();
-        b2.displayBook();
+        System.out.println("Book 1 Details");
+        System.out.println("--------------------");
+        book1.display();
 
-        sc.close();
+        System.out.println("Book 2 Details");
+        System.out.println("--------------------");
+        book2.display();
+
+        System.out.println("Book 3 Details");
+        System.out.println("--------------------");
+        book3.display();
     }
 }
